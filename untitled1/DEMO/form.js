@@ -77,6 +77,8 @@ btn_edit.onclick = function editButton() {
     }
 }
 
+// TODO: Hàm cập nhật
+
 function updateData() {
 
     // TODO: gán lại dữ liệu tìm kiếm
@@ -84,7 +86,7 @@ function updateData() {
     var name = document.getElementById("name").value;
     var age = document.getElementById("inputAge").value;
     var className = document.getElementById("inputClass").value;
-    // TODO: ở đây khi find ra ID sẽ gặp1 trường hợp error index = -1
+    // TODO: ở đây khi find ra ID sẽ gặp 1 trường hợp error index = -1
     // TODO: Lỗi ở đây là so sánh === thì sẽ sai với trường hợp này
 
     // TODO: lấy ra id để update
@@ -97,34 +99,20 @@ function updateData() {
     querryData(arr)
 }
 
+// TODO: hàm tìm kiếm
 
 let btn_search = document.getElementById('searchItem');
 
-btn_search.onclick = function search() {
+ function search() {
 
-    // TODO: Đặt điều kiện tìm kiếm
-    var search = document.getElementById('searchItemInput').value;
-    // TODO: gọi mảng
-    var list = arr;
-    var kq = [];
+    // TODO: Đặt điều kiện tìm kiếm bằng nút
+    let search = document.getElementById('searchItemInput').value;
+
+    // TODO: filter là hàm thay thế cho vòng for và
+
+    var kq = arr.filter(value => {
+        return value.name.toUpperCase().includes(search.toUpperCase())
+    });
     // TODO: Kiểm tra điều kiện
-    if (search) {
-        for (let i = 0; i < list.length; i++) {
-            var str = list[i].name;
-
-            if (search == str) {
-                var itemSearch= {
-                    id: list[i].id,
-                    name: list[i].name,
-                    age: list[i].age,
-                    className: list[i].className
-
-                }
-                console.log(itemSearch)
-                kq.push(itemSearch);
-            }
-
-
-        }
-    }
+     querryData(kq)
 }
